@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.imgs{
+			width:790px;
+			margin:100px auto;
+			position:relative;
+		}
+		.imgs:hover .left{
+			display:block;
+		}
+		.imgs:hover .right{
+			display:block;
+		}
+		.img{
+			z-index:-1;
+		}
+		.left{
+			width:26px;
+			height:60px;
+			background:#000;
+			opacity:0.2;
+			float:left;
+			position:absolute;
+			top:40%;
+			left:0;
+			z-index:1000;
+			display:none;
+			color:white;
+			font-size:20px;
+			text-align:center;
+			line-height:60px;
+		}
+		.left:hover{
+			background:#000;
+			opacity:0.5;
+		}
+		.right:hover{
+			background:#000;
+			opacity:0.5;
+		}
+		.right{
+			width:26px;
+			height:60px;
+			background:red;
+			float:right;
+			position:absolute;
+			top:40%;
+			right:0;
+			background:#000;
+			opacity:0.2;
+			display:none;
+			color:white;
+			font-size:20px;
+			text-align:center;
+			line-height:60px;
+		}
+		.tx{
+			width:183px;
+			height:20px;
+			background-color:hsla(0,0%,100%,.3);
+			position:absolute;
+			top:310px;
+			left:40%;
+			border-radius:10px;
+			z-index:10000;
+		}
+		.tx div{
+			width:15px;
+			height:15px;
+			background:white;
+			border-radius:50%;
+			float:left;
+			margin-left:7px;
+			margin-top:2px;
+		}
+		.tx1:hover{
+			background:#db192a;
+		}
+		.tx2:hover{
+			background:#db192a;
+		}
+		.tx3:hover{
+			background:#db192a;
+		}
+		.tx4:hover{
+			background:#db192a;
+		}
+		.tx5:hover{
+			background:#db192a;
+		}
+		.tx6:hover{
+			background:#db192a;
+		}
+		.tx7:hover{
+			background:#db192a;
+		}
+		.tx8:hover{
+			background:#db192a;
+		}
+	</style>
+</head>
+<body>
+	<div class="imgs">
+		<img src="image/2.jpg">
+		<div class="left">
+			<
+		</div>
+		<div class="right">
+			>
+		</div>
+		<div class="tx">
+			<div class="tx1"></div>
+			<div class="tx2"></div>
+			<div class="tx3"></div>
+			<div class="tx4"></div>
+			<div class="tx5"></div>
+			<div class="tx6"></div>
+			<div class="tx7"></div>
+			<div class="tx8"></div>
+		</div>
+	</div>
+	<script>
+		var  bigImg = [
+			'./image/1.jpg',
+            './image/2.jpg',
+            './image/3.jpg',
+            './image/4.jpg',
+            './image/5.jpg',
+            './image/6.jpg',
+            './image/7.jpg',
+            './image/8.jpg',
+		];
+		var oBigImg = document.querySelector('.imgs>img');
+		var smallImgs = document.querySelectorAll('.imgs div div');
+		for(var i=0;i<smallImgs.length;i++){
+			(function(item){
+			smallImgs[i].onmouseover =  function(){
+				oBigImg.src=bigImg[item];
+				};
+			})(i);
+		};
+		var oleft = document.querySelector('.left');
+        var oright = document.querySelector('.right');
+         var i = 0;
+        oleft.onclick=function(){
+            i--;
+            if(i<0){
+                i=bigImg.length-1;
+            }
+            oBigImg.src = bigImg[i];
+        }
+        oright.onclick=function(){
+            i++;
+            if(i>bigImg.length-1){
+                i=0;
+            }
+            oBigImg.src = bigImg[i];
+        }
+      
+	</script>
+</body>
+</html>
